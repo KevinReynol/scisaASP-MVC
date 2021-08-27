@@ -1,0 +1,53 @@
+﻿@model IEnumerable<scisaASP_MVC.Models.categoria>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Crear Nueva Categoria", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idCategoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idCategoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.ActionLink("Editar categoria", "Edit", new { id = item.idCategoria }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.idCategoria }) |
+                @Html.ActionLink("Borrar categoria", "Delete", new { id = item.idCategoria }) |
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

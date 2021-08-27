@@ -1,0 +1,65 @@
+﻿@model IEnumerable<scisaASP_MVC.Models.productos>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idProducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idCategoriaP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombreCategoria)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idCategoriaP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombreCategoria)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id=item.idProducto }) |
+                @Html.ActionLink("Detalles", "Details", new { id=item.idProducto }) |
+                @Html.ActionLink("Borrar", "Delete", new { id=item.idProducto })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
